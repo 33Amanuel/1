@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Amanuel Asegid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+
+        .resume {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1000px;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .left-section {
+            width: 100%;
+            max-width: 35%;
+            background-color: #1f1f1f;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .left-section img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            margin: 20px auto;
+        }
+
+        .left-section h1 {
+            font-size: 26px;
+            margin: 10px 0;
+        }
+
+        .left-section h2 {
+            font-size: 18px;
+            color: #d3d3d3;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .left-section .contact, .left-section .education {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .left-section h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #d3d3d3;
+            padding-bottom: 5px;
+        }
+
+        .left-section p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .right-section {
+            width: 100%;
+            max-width: 65%;
+            padding: 30px;
+            background: #f9f9f9;
+        }
+
+        .right-section h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #1f1f1f;
+            text-transform: uppercase;
+            border-bottom: 2px solid #1f1f1f;
+            display: inline-block;
+        }
+
+        .right-section .section {
+            margin-bottom: 30px;
+        }
+
+        .right-section h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .right-section p {
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .skills {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skill {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .stars {
+            display: flex;
+        }
+
+        .stars span {
+            width: 12px;
+            height: 12px;
+            margin-left: 4px;
+            background-color: #1f1f1f;
+            border-radius: 50%;
+        }
+
+     
+        @media (max-width: 768px) {
+            .resume {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .left-section,
+            .right-section {
+                width: 100%;
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            .left-section img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .left-section h1 {
+                font-size: 22px;
+            }
+
+            .left-section h2 {
+                font-size: 16px;
+            }
+
+            .right-section h3 {
+                font-size: 20px;
+            }
+
+            .right-section h4 {
+                font-size: 16px;
+            }
+
+            .right-section p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-section img {
+                width: 160px;
+                height: 160px;
+            }
+
+            .left-section h1 {
+                font-size: 20px;
+            }
+
+            .left-section h2 {
+                font-size: 14px;
+            }
+
+            .right-section h3 {
+                font-size: 18px;
+            }
+
+            .right-section h4 {
+                font-size: 14px;
+            }
+
+            .right-section p {
+                font-size: 13px;
+            }
+
+            .left-section h3 {
+                font-size: 18px;
+            }
+
+            .left-section p {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+        <div class="left-section">
+            <img src="my.jpeg" alt="Amanuel Asegid">
+            <h1>Amanuel Asegid</h1>
+            <h2>Front End Web Developer</h2>
+
+            <div class="contact">
+                <h3>Contact</h3>
+                <p>📞 +251933632349</p>
+                <p>✉️ amanuelasegid37@gmail.com</p>
+                <p>📍 Ethiopia, Adama</p>
+            </div>
+
+            <div class="education">
+                <h3>Education</h3>
+                <p><strong>2023 - Now</strong></p>
+                <p>Bachelor</p>
+                <p>Adama Science and Technology University</p>
+                <p>Gaining in-depth knowledge of software development, computer systems, and programming languages.</p>
+
+                <p><strong>September 2023 – Present</strong></p>
+                <p>Diploma in Database Management</p>
+                <p>Adama Polytechnic College</p>
+                <p>Acquiring foundational and advanced skills in database design, implementation, and management.</p>
+                <p>Learning to use tools such as MySQL and SQL Server for creating, managing, and optimizing databases.</p>
+                <p>Developing knowledge of data modeling, normalization, and query optimization techniques.</p>
+                <p>Gaining practical experience through hands-on projects and case studies focused on real-world database applications.</p>
+                <p>Preparing for roles in database administration, data analysis, and system development.</p>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="section">
+                <h3>Professional Summary</h3>
+                <p>Motivated and detail-oriented Software Engineering student with hands-on experience in mobile and computer repair, programming, and electronics. Skilled in database management and front-end web development, with a solid foundation in problem-solving and critical thinking. Trained in Arduino systems and language proficiency, with a commitment to delivering innovative solutions.</p>
+            </div>
+
+            <div class="section">
+                <h3>Experience</h3>
+                <h4>Mobile and Computer Technician</h4>
+                <p><strong>NATA Computer Training Center</strong> - Ethiopia, Adama</p>
+                <p><strong>2023 - 2024</strong></p>
+                <p>- Diagnosed and resolved hardware and software issues.</p>
+                <p>- Conducted maintenance checks on devices.</p>
+                <p>- Provided training and support to clients.</p>
+                <p>- Assisted with inventory management for equipment.</p>
+            </div>
+
+            <div class="section">
+                <h3>Skills</h3>
+                <div class="skills">
+                    <div class="skill">
+                        <p>HTML</p>
+                        <div class="stars">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <p>CSS</p>
+                        <div class="stars">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <p>MySQL</p>
+                        <div class="stars">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <p>UX Design</p>
+                        <div class="stars">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
