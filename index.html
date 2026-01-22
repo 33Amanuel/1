@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LuxeStay Hotel & Restaurant</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+
+<style>
+:root {
+    --green: #27ae60;
+    --black: #192a56;
+    --light-color: #666;
+    --light-bg: #f7f7f7;
+    --white: #fff;
+    --border: .1rem solid rgba(0,0,0,.1);
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    --footer-bg: #000000;
+}
+
+* { 
+    font-family: 'Poppins', sans-serif; 
+    margin:0; padding:0; 
+    box-sizing:border-box; 
+    text-decoration:none; 
+    border:none; outline:none;
+    transition:all .3s ease; 
+}
+
+html { 
+    font-size:62.5%; 
+    scroll-behavior:smooth; 
+    overflow-x: hidden;
+}
+
+body { 
+    padding-top:7rem; 
+    background: var(--white);
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+section { 
+    padding:3rem 9%; 
+}
+
+section:nth-child(even) { 
+    background:var(--light-bg); 
+}
+
+.sub-heading { 
+    text-align:center; 
+    color:var(--green); 
+    font-size:2.5rem; 
+    padding-top:1rem; 
+}
+
+.heading { 
+    text-align:center; 
+    color:var(--black); 
+    font-size:3.5rem; 
+    padding-bottom:2.5rem; 
+    text-transform:uppercase; 
+    position: relative;
+}
+
+.heading::after {
+    content: '';
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10rem;
+    height: .3rem;
+    background: var(--green);
+}
+
+.but { 
+    margin-top:1rem; 
+    display:inline-block; 
+    font-size:1.7rem; 
+    color:#fff; 
+    background:var(--black); 
+    border-radius:.5rem; 
+    cursor:pointer; 
+    padding:1rem 3rem; 
+    font-weight: 500;
+    text-align: center;
+}
+
+.but:hover { 
+    background:var(--green); 
+    letter-spacing:.1rem; 
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow);
+}
+
+/* Header */
+header { 
+    position:fixed; 
+    top:0; left:0; right:0; 
+    background:#fff; 
+    padding:1.5rem 7%; 
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+    z-index:1000; 
+    box-shadow:var(--box-shadow); 
+    width: 100%;
+}
+
+header .logo { 
+    font-size:2.8rem; 
+    font-weight:bold; 
+    color:var(--black);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    white-space: nowrap;
+}
+
+header .logo i { 
+    color:var(--green); 
+    font-size: 3rem;
+}
+
+header .navbar { 
+    display:flex; 
+    gap:1.5rem; 
+}
+
+header .navbar a { 
+    font-size:1.7rem; 
+    color:var(--light-color); 
+    padding:1rem 1.5rem; 
+    border-radius:.5rem;
+    position: relative;
+    white-space: nowrap;
+}
+
+header .navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: .5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: .2rem;
+    background: var(--green);
+    transition: width .3s ease;
+}
+
+header .navbar a:hover::after,
+header .navbar a.active::after {
+    width: 70%;
+}
+
+header .navbar a:hover, 
+header .navbar a.active { 
+    color:var(--black);
+}
+
+header .icons { 
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+header .icons i, 
+header .icons a { 
+    cursor:pointer; 
+    height:4.5rem; 
+    width:4.5rem; 
+    line-height:4.5rem; 
+    text-align:center; 
+    font-size:1.7rem; 
+    border-radius:50%; 
+    background:#eee; 
+    color:var(--black);
+    position: relative;
+    flex-shrink: 0;
+}
+
+header .icons i:hover, 
+header .icons a:hover { 
+    color:#fff; 
+    background:var(--green);
+    transform: rotate(360deg);
+}
+
+header .icons .cart-count {
+    position: absolute;
+    top: -.5rem;
+    right: -.5rem;
+    background: var(--green);
+    color: white;
+    font-size: 1.2rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu-bars { display:none; }
+
+/* Language Toggle */
+.language-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--light-bg);
+    border-radius: 2rem;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.lang-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 1.5rem;
+    border: none;
+    background: transparent;
+    color: var(--light-color);
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.lang-btn.active {
+    background: var(--green);
+    color: white;
+    box-shadow: var(--box-shadow);
+}
+
+.lang-btn:hover:not(.active) {
+    background: rgba(39, 174, 96, 0.1);
+    color: var(--green);
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Extra Large Devices (Desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    html { font-size: 65%; }
+    section { padding: 4rem 10%; }
+    header { padding: 1.5rem 10%; }
+}
+
+/* Large Devices (Tablets Landscape, 992px to 1199px) */
+@media (max-width: 1199px) and (min-width: 992px) {
+    html { font-size: 60%; }
+    section { padding: 3rem 7%; }
+    .swiper-slide h3 { font-size: 4.5rem; }
+}
+
+/* Medium Devices (Tablets Portrait, 768px to 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+    html { font-size: 55%; }
+    section { padding: 3rem 5%; }
+    header { padding: 1.5rem 5%; }
+    
+    .swiper-slide h3 { font-size: 4rem; }
+    .swiper-slide p { font-size: 1.6rem; }
+    
+    .dishes .box-container { 
+        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    }
+    
+    .about .row .content h3 { font-size: 3rem; }
+}
+
+/* Small Devices (Phones Landscape, 576px to 767px) */
+@media (max-width: 767px) and (min-width: 576px) {
+    html { font-size: 53%; }
+    section { padding: 2.5rem 4%; }
+    header { padding: 1.5rem 4%; }
+    
+    .swiper { height: 50rem; }
+    .swiper-slide h3 { font-size: 3.5rem; }
+    
+    .dishes .box-container { 
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
+    
+    .order form .inputBox input {
+        width: 100%;
+    }
+}
+
+/* Extra Small Devices (Phones Portrait, 0px to 575px) */
+@media (max-width: 575px) {
+    html { font-size: 50%; }
+    section { padding: 2rem 3%; }
+    body { padding-top: 8rem; }
+    
+    header { 
+        padding: 1rem 3%; 
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 7rem;
+    }
+    
+    header .logo { 
+        font-size: 2.2rem;
+        order: 1;
+        flex: 1;
+    }
+    
+    .language-toggle {
+        order: 2;
+        position: static;
+        margin: 0;
+    }
+    
+    #menu-bars { 
+        display: inline-block;
+        order: 3;
+    }
+    
+    header .icons {
+        order: 4;
+        flex: 1 100%;
+        justify-content: center;
+        margin-top: 1rem;
+        gap: 0.5rem;
+    }
+    
+    header .navbar { 
+        position: fixed; 
+        top: 8rem; 
+        right: -100%; 
+        width: 100%; 
+        height: calc(100vh - 8rem); 
+        flex-direction: column; 
+        justify-content: flex-start; 
+        align-items: center; 
+        gap: 2rem; 
+        background: #fff; 
+        transition: right .4s; 
+        padding-top: 3rem;
+        box-shadow: var(--box-shadow);
+        overflow-y: auto;
+    }
+    
+    header .navbar.active { right: 0; }
+    
+    header .navbar a { 
+        font-size: 2.2rem; 
+        width: 90%; 
+        text-align: center; 
+        padding: 1.5rem; 
+        border-radius: 1rem; 
+    }
+    
+    header .navbar a:hover {
+        background: var(--green);
+        color: white;
+    }
+    
+    /* Swiper Adjustments */
+    .swiper { 
+        height: 45rem;
+        padding-top: 1rem;
+        padding-bottom: 3rem;
+    }
+    
+    .swiper-slide { 
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 0 3%;
+    }
+    
+    .swiper-slide .image, 
+    .swiper-slide .content { 
+        flex: 1 1 100%;
+        width: 100%;
+    }
+    
+    .swiper-slide h3 { 
+        font-size: 3.2rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+    }
+    
+    .swiper-slide p { 
+        font-size: 1.6rem;
+        padding: 1rem 0;
+        max-width: 100%;
+    }
+    
+    .swiper-slide .image img {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    
+    /* Dishes Section */
+    .dishes .box-container { 
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .dishes .box-container .box {
+        padding: 2rem;
+        margin: 0 auto;
+        max-width: 35rem;
+    }
+    
+    /* About Section */
+    .about .row {
+        flex-direction: column;
+        gap: 3rem;
+        margin-top: 2rem;
+    }
+    
+    .about .row .content h3 {
+        font-size: 2.8rem;
+        text-align: center;
+    }
+    
+    .about .row .content p {
+        text-align: center;
+        font-size: 1.6rem;
+    }
+    
+    .about .row .content .icons-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Order Section */
+    .order form {
+        padding: 2rem;
+        margin: 1rem auto;
+    }
+    
+    .order form .inputBox input {
+        width: 100%;
+    }
+    
+    .order form textarea {
+        height: 12rem;
+    }
+    
+    /* Review Section */
+    .review .slide {
+        padding: 2rem;
+        margin: 0 auto 2rem;
+        max-width: 90%;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 3rem 5% 1rem;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .footer-about,
+    .footer-links,
+    .footer-newsletter {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .footer-contact p {
+        justify-content: center;
+    }
+    
+    .footer-newsletter form {
+        flex-direction: column;
+    }
+    
+    .footer-newsletter input,
+    .footer-newsletter .but {
+        width: 100%;
+    }
+    
+    .footer-bottom .share {
+        gap: 1rem;
+    }
+    
+    .footer-bottom .share a {
+        width: 4rem;
+        height: 4rem;
+        line-height: 4rem;
+    }
+}
+
+/* Ultra Small Devices (Very small phones, 0px to 360px) */
+@media (max-width: 360px) {
+    html { font-size: 45%; }
+    
+    header .logo { font-size: 2rem; }
+    
+    header .icons i, 
+    header .icons a {
+        height: 4rem;
+        width: 4rem;
+        line-height: 4rem;
+    }
+    
+    .language-toggle {
+        padding: 0.3rem;
+    }
+    
+    .lang-btn {
+        padding: 0.6rem 1rem;
+        font-size: 1.2rem;
+    }
+    
+    .swiper-slide h3 { font-size: 2.8rem; }
+    
+    .heading { font-size: 2.8rem; }
+    
+    .sub-heading { font-size: 2rem; }
+    
+    .but {
+        padding: 0.8rem 2rem;
+        font-size: 1.5rem;
+    }
+    
+    .dishes .box-container .box {
+        padding: 1.5rem;
+    }
+    
+    .dishes .box-container .box img {
+        height: 18rem;
+    }
+}
+
+/* Landscape Orientation for Mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    header .navbar {
+        height: calc(100vh - 7rem);
+        padding-top: 2rem;
+        overflow-y: auto;
+    }
+    
+    .swiper { height: 40rem; }
+    
+    .swiper-slide h3 { font-size: 3rem; }
+    
+    .swiper-slide p { 
+        font-size: 1.4rem;
+        padding: 0.5rem 0;
+    }
+}
+
+/* High Resolution Devices */
+@media (min-width: 1600px) {
+    html { font-size: 70%; }
+    
+    .footer-container,
+    .order form {
+        max-width: 1400px;
+    }
+}
+
+/* ========== END RESPONSIVE DESIGN ========== */
+
+/* Search */
+#search-form { 
+    position:fixed; 
+    top:0; left:0; 
+    width:100%; height:100%; 
+    background:rgba(0,0,0,.9); 
+    display:none; 
+    align-items:center; 
+    justify-content:center; 
+    z-index:1004; 
+    padding: 0 2rem;
+}
+
+#search-form.active { display:flex; }
+
+#search-form #search-box { 
+    width:50rem; 
+    max-width: 90%;
+    border-bottom:2px solid #fff; 
+    color:#fff; 
+    font-size:3rem; 
+    background:none;
+    padding: 1rem 0;
+}
+
+#search-form #search-box::placeholder { 
+    color:#eee;
+    font-size: 2rem;
+}
+
+#search-form label { 
+    color:#fff; 
+    cursor:pointer; 
+    font-size:3rem; 
+    margin-left:1rem;
+}
+
+#search-form label:hover {
+    color: var(--green);
+}
+
+#close-search { 
+    position:absolute; 
+    top:2rem; right:3rem; 
+    font-size:4rem; 
+    color:#fff; 
+    cursor:pointer;
+}
+
+#close-search:hover {
+    color: var(--green);
+    transform: rotate(90deg);
+}
+
+/* Swiper */
+.swiper { 
+    width:100%; 
+    height: 60rem;
+    padding-top:2rem; 
+    padding-bottom:5rem; 
+}
+
+.swiper-slide { 
+    display:flex; 
+    align-items:center; 
+    justify-content:space-between; 
+    gap: 4rem;
+    padding: 0 5%;
+}
+
+.swiper-slide .content { 
+    flex: 1;
+    animation: fadeInLeft 1s ease;
+}
+
+.swiper-slide .image { 
+    flex: 1;
+    text-align: center;
+}
+
+.swiper-slide .image img { 
+    width:100%; 
+    max-width: 50rem;
+    border-radius:.5rem; 
+    box-shadow: var(--box-shadow);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2rem); }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.swiper-slide span { 
+    color:var(--green); 
+    font-size:2.5rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.swiper-slide h3 { 
+    color:var(--black); 
+    font-size:5rem; 
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.swiper-slide p { 
+    color:var(--light-color); 
+    font-size:1.8rem; 
+    padding:1.5rem 0;
+    line-height: 1.8;
+    max-width: 50rem;
+}
+
+.swiper-pagination-bullet {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    background: var(--light-color) !important;
+    opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active { 
+    background:var(--green) !important;
+    transform: scale(1.2);
+}
+
+/* Dishes */
+.dishes .box-container { 
+    display:grid; 
+    grid-template-columns:repeat(auto-fit,minmax(30rem,1fr)); 
+    gap:2.5rem; 
+    margin-top: 3rem;
+}
+
+.dishes .box-container .box { 
+    padding:2.5rem; 
+    background:#fff; 
+    border-radius:.5rem; 
+    border: var(--border);
+    box-shadow:var(--box-shadow); 
+    position:relative; 
+    overflow:hidden; 
+    text-align:center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dishes .box-container .box:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+}
+
+.dishes .box-container .box img { 
+    height:22rem; 
+    width: 100%;
+    object-fit: cover;
+    margin:1rem 0; 
+    border-radius:.5rem; 
+}
+
+.dishes .box-container .box h3 { 
+    color:var(--black); 
+    font-size:2.5rem;
+    margin: 1rem 0;
+}
+
+.dishes .box-container .box .stars { 
+    padding:1rem 0; 
+}
+
+.dishes .box-container .box .stars i { 
+    color:#f39c12; 
+    font-size:1.7rem; 
+    margin:0 .1rem; 
+}
+
+.dishes .box-container .box span {
+    color: var(--green);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 1rem 0;
+    display: block;
+}
+
+/* Heart & Eye icons */
+.dishes .box-container .box .fa-heart, 
+.dishes .box-container .box .fa-eye { 
+    position:absolute; 
+    top:2rem; 
+    background:#eee; 
+    border-radius:50%; 
+    height:4.5rem; 
+    width:4.5rem; 
+    line-height:4.5rem; 
+    font-size:2rem; 
+    color:var(--black);
+    z-index: 2;
+}
+
+.dishes .box-container .box .fa-heart { 
+    right:-15rem; 
+}
+
+.dishes .box-container .box .fa-eye { 
+    left:-15rem; 
+}
+
+.dishes .box-container .box:hover .fa-heart { 
+    right:2rem; 
+    background:var(--green); 
+    color:#fff; 
+}
+
+.dishes .box-container .box:hover .fa-eye { 
+    left:2rem; 
+    background:var(--green); 
+    color:#fff; 
+}
+
+.dishes .box-container .box .fa-heart:hover,
+.dishes .box-container .box .fa-eye:hover {
+    background: var(--black);
+    transform: scale(1.1);
+}
+
+/* About Section */
+.about {
+    background: var(--white);
+}
+
+.about .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.about .row .image {
+    flex: 1 1 45rem;
+}
+
+.about .row .image img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+.about .row .content {
+    flex: 1 1 45rem;
+}
+
+.about .row .content h3 {
+    color: var(--black);
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about .row .content p {
+    color: var(--light-color);
+    font-size: 1.6rem;
+    line-height: 1.8;
+    padding: 1rem 0;
+}
+
+.about .row .content .icons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.about .row .content .icons-container .icons {
+    background: var(--light-bg);
+    padding: 2rem;
+    border-radius: .5rem;
+    text-align: center;
+}
+
+.about .row .content .icons-container .icons i {
+    font-size: 3rem;
+    color: var(--green);
+    margin-bottom: 1rem;
+}
+
+.about .row .content .icons-container .icons h3 {
+    font-size: 2rem;
+    color: var(--black);
+    margin-bottom: .5rem;
+}
+
+/* Review Section */
+.review .slide {
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    margin-bottom: 3rem;
+}
+
+.review .slide img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: .5rem solid var(--light-bg);
+}
+
+.review .slide h3 {
+    color: var(--black);
+    font-size: 2.5rem;
+    margin-bottom: .5rem;
+}
+
+.review .slide .stars i {
+    color: #f39c12;
+    font-size: 1.7rem;
+    margin: 0 .2rem;
+}
+
+.review .slide p {
+    color: var(--light-color);
+    font-size: 1.6rem;
+    line-height: 1.8;
+    padding: 1.5rem 0;
+    font-style: italic;
+}
+
+/* Order Section */
+.order form {
+    max-width: 70rem;
+    margin: 2rem auto;
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+}
+
+.order form .inputBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.order form .inputBox input,
+.order form textarea {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    color: var(--black);
+    border: var(--border);
+    border-radius: .5rem;
+    margin: .7rem 0;
+    background: var(--light-bg);
+}
+
+.order form .inputBox input:focus,
+.order form textarea:focus {
+    border-color: var(--green);
+}
+
+.order form .inputBox input {
+    width: 49%;
+}
+
+.order form textarea {
+    height: 15rem;
+    resize: none;
+}
+
+.order form .but {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+/* Footer */
+.footer {
+    background: var(--footer-bg);
+    padding: 4rem 9% 2rem;
+    color: var(--white);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-about {
+    flex: 1 1 25rem;
+}
+
+.footer-about h3 {
+    color: var(--green);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-about h3 i {
+    font-size: 2.5rem;
+}
+
+.footer-about p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #ddd;
+    margin-bottom: 1.5rem;
+}
+
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.6rem;
+    margin: 1rem 0;
+    color: #ddd;
+}
+
+.footer-contact i {
+    color: var(--green);
+    width: 2rem;
+}
+
+.footer-links {
+    flex: 1 1 20rem;
+}
+
+.footer-links h3 {
+    color: var(--green);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links a {
+    display: block;
+    color: #ddd;
+    font-size: 1.6rem;
+    margin: 1rem 0;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--green);
+    padding-left: 1rem;
+}
+
+.footer-newsletter {
+    flex: 1 1 25rem;
+}
+
+.footer-newsletter h3 {
+    color: var(--green);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-newsletter p {
+    font-size: 1.6rem;
+    color: #ddd;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.footer-newsletter form {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-newsletter input {
+    flex: 1;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    font-size: 1.6rem;
+}
+
+.footer-newsletter input::placeholder {
+    color: #aaa;
+}
+
+.footer-newsletter .but {
+    background: var(--green);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footer-newsletter .but:hover {
+    background: var(--black);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.footer-bottom .share {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.footer-bottom .share a {
+    width: 4.5rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+.footer-bottom .share a:hover {
+    background: var(--green);
+    color: var(--white);
+    transform: translateY(-5px);
+}
+
+.footer-credit {
+    color: #ddd;
+    font-size: 1.6rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-credit span {
+    color: var(--green);
+    font-weight: 600;
+}
+
+.footer-credit a {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .but:hover,
+    header .navbar a:hover,
+    header .icons i:hover,
+    header .icons a:hover,
+    .dishes .box-container .box:hover .fa-heart,
+    .dishes .box-container .box:hover .fa-eye,
+    .dishes .box-container .box .fa-heart:hover,
+    .dishes .box-container .box .fa-eye:hover,
+    .footer-links a:hover,
+    .footer-newsletter .but:hover,
+    .footer-bottom .share a:hover {
+        transform: none;
+    }
+    
+    .but:active,
+    header .navbar a:active,
+    header .icons i:active,
+    header .icons a:active {
+        transform: scale(0.95);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .language-toggle,
+    #menu-bars,
+    #search-icon,
+    .fa-heart,
+    .fa-shopping-cart,
+    .footer-newsletter form,
+    .footer-bottom .share {
+        display: none !important;
+    }
+    
+    body {
+        padding-top: 0;
+    }
+    
+    header {
+        position: static;
+        box-shadow: none;
+    }
+    
+    .but {
+        display: none;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo"><i class="fas fa-utensils"></i> Hora</a>
+    <nav class="navbar">
+        <a class="active" href="#home" data-en="Home" data-am="መነሻ">Home</a>
+        <a href="#dishes" data-en="Dishes" data-am="ምግቦች">Dishes</a>
+        <a href="#about" data-en="About" data-am="ስለ እኛ">About</a>
+        <a href="#review" data-en="Review" data-am="አስተያየት">Review</a>
+        <a href="#order" data-en="Order Now" data-am="አሁን ይዘዙ">Order Now</a>
+    </nav>
+    <div class="icons">
+        <div class="language-toggle">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="am">አማ</button>
+        </div>
+        <i class="fas fa-bars" id="menu-bars"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+        <a href="#" class="fas fa-heart">
+            <span class="cart-count">3</span>
+        </a>
+        <a href="#" class="fas fa-shopping-cart">
+            <span class="cart-count">2</span>
+        </a>
+    </div>
+</header>
+
+<form id="search-form">
+    <input type="search" placeholder="Search dishes, cuisines..." id="search-box" data-en-placeholder="Search dishes, cuisines..." data-am-placeholder="ምግቦችን፣ ምግብ አይነቶችን ፈልግ...">
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close-search"></i>
+</form>
+
+<!-- Home Section -->
+<section class="home" id="home">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="content">
+          <span data-en="Signature Dish" data-am="ልዩ ምግብ">Signature Dish</span>
+          <h3 data-en="Spicy Noodles" data-am="ሚስማር ሱስያ">Spicy Noodles</h3>
+          <p data-en="Authentic Asian noodles with fresh vegetables and our special sauce. Vegetarian friendly with vegan and gluten-free options available."
+             data-am="እውነተኛ የእስያ ሱስያ ከቅርፊ አትክልቶች እና ከልዩ ስስን ጋር። እንስሳ የማይበሉ ሰዎች ተስማሚ ከቬጋን እና ግሉተን-ነጻ አማራጮች ጋር።">Authentic Asian noodles with fresh vegetables and our special sauce. Vegetarian friendly with vegan and gluten-free options available.</p>
+          <a href="#order" class="but" data-en="Order now" data-am="አሁን ይዘዙ">Order now</a>
+        </div>
+        <div class="image"><img src="images/1212.jpg" alt="Spicy Noodles"></div>
+      </div>
+      <div class="swiper-slide">
+        <div class="content">
+          <span data-en="Chef's Special" data-am="የሾፍ ልዩ">Chef's Special</span>
+          <h3 data-en="Fried Chicken" data-am="የተጠበሰ ዶሮ">Fried Chicken</h3>
+          <p data-en="Crispy golden fried chicken with 11 secret herbs and spices. Served with homemade dipping sauces."
+             data-am="ክሪስፒ ወርቃማ የተጠበሰ ዶሮ ከ11 ምስጢራዊ ቅጠሎች እና ቅመሞች ጋር። በቤት የተሰራ ስስ ጋር ይቀርባል።">Crispy golden fried chicken with 11 secret herbs and spices. Served with homemade dipping sauces.</p>
+          <a href="#order" class="but" data-en="Order now" data-am="አሁን ይዘዙ">Order now</a>
+        </div>
+        <div class="image"><img src="https://images.unsplash.com/photo-1626082895612-9d01e0e8c0b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fried Chicken"></div>
+      </div>
+      <div class="swiper-slide">
+        <div class="content">
+          <span data-en="Family Favorite" data-am="የቤተሰብ ተወዳጅ">Family Favorite</span>
+          <h3 data-en="Burger Combo" data-am="በርገር ኮምቦ">Burger Combo</h3>
+          <p data-en="Juicy beef patty with fresh lettuce, tomatoes, and special sauce. Comes with crispy fries and drink."
+             data-am="አረስ ያለው የበሬ ሥጋ ከቅርፊ ሰላጣ፣ ቲማቲም እና ልዩ ስስ ጋር። ክሪስፒ ቺፕስ እና መጠጥ ይዟል።">Juicy beef patty with fresh lettuce, tomatoes, and special sauce. Comes with crispy fries and drink.</p>
+          <a href="#order" class="but" data-en="Order now" data-am="አሁን ይዘዙ">Order now</a>
+        </div>
+        <div class="image"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Burger Combo"></div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<!-- Dishes Section -->
+<section class="dishes" id="dishes">
+    <h3 class="sub-heading" data-en="Our Dishes" data-am="ምግቦቻችን">Our Dishes</h3>
+    <h1 class="heading" data-en="Popular Dishes" data-am="የተወደዱ ምግቦች">Popular Dishes</h1>
+    <div class="box-container">
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Spaghetti Carbonara">
+            <h3 data-en="Spaghetti Carbonara" data-am="ስፓጌቲ ካርቦናራ">Spaghetti Carbonara</h3>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+            <span>450 birr</span>
+            <a href="#order" class="but" data-en="Add to Cart" data-am="ወደ ቋሚ ጨርቅ ጨምር">Add to Cart</a>
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fresh Salad">
+            <h3 data-en="Fresh Garden Salad" data-am="ቅርፊ የገበያ ሰላጣ">Fresh Garden Salad</h3>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <span>350 birr</span>
+            <a href="#order" class="but" data-en="Add to Cart" data-am="ወደ ቋሚ ጨርቅ ጨምር">Add to Cart</a>
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chocolate Cake">
+            <h3 data-en="Chocolate Lava Cake" data-am="ቸኮሌት ላቫ ኬክ">Chocolate Lava Cake</h3>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+            <span>300 birr</span>
+            <a href="#order" class="but" data-en="Add to Cart" data-am="ወደ ቋሚ ጨርቅ ጨምር">Add to Cart</a>
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Grilled Salmon">
+            <h3 data-en="Grilled Salmon" data-am="የተጠበሰ ሳልሞን">Grilled Salmon</h3>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <span>650 birr</span>
+            <a href="#order" class="but" data-en="Add to Cart" data-am="ወደ ቋሚ ጨርቅ ጨምር">Add to Cart</a>
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pizza">
+            <h3 data-en="Margherita Pizza" data-am="ማርጋሪታ ፒዛ">Margherita Pizza</h3>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+            <span>550 birr</span>
+            <a href="#order" class="but" data-en="Add to Cart" data-am="ወደ ቋሚ ጨርቅ ጨምር">Add to Cart</a>
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smoothie Bowl">
+            <h3 data-en="Fruit Smoothie Bowl" data-am="ፍራፍሬ ስሙዝ ቦውል">Fruit Smoothie Bowl</h3>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <span>280 birr</span>
+            <a href="#order" class="but" data-en="Add to Cart" data-am="ወደ ቋሚ ጨርቅ ጨምር">Add to Cart</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+    <h3 class="sub-heading" data-en="About Us" data-am="ስለ እኛ">About Us</h3>
+    <h1 class="heading" data-en="Why Choose Us?" data-am="ለምን እንድትመርጡን?">Why Choose Us?</h1>
+    
+    <div class="row">
+        <div class="image">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Restaurant Interior">
+        </div>
+        
+        <div class="content">
+            <h3 data-en="Best Food in The City" data-am="በከተማው ውስጥ ምርጥ ምግብ">Best Food in The City</h3>
+            <p data-en="Welcome to LuxeStay Hotel & Restaurant, where culinary excellence meets warm hospitality. Since 2010, we've been serving authentic dishes made from the freshest ingredients."
+               data-am="ወደ LuxeStay ሆቴል እና ሬስቶራንት እንኳን በደህና መጡ። ምግብ ማዘጋጀት የሚሰጥ ከፍተኛ ጥራት ከሞቅ የእንግዶች አገልግሎት ጋር የሚገናኝበት። ከ2010 ጀምሮ ከቅርፊ ንጥረ ነገሮች የተሰሩ እውነተኛ ምግቦችን እያቀረብን ነው።">Welcome to LuxeStay Hotel & Restaurant, where culinary excellence meets warm hospitality. Since 2010, we've been serving authentic dishes made from the freshest ingredients.</p>
+            <p data-en="Our chefs combine traditional recipes with modern techniques to create unforgettable dining experiences."
+               data-am="የምግብ አዘጋጆቻችን ባህላዊ የምግብ ዘይቤዎችን ከዘመናዊ ቴክኒኮች ጋር በማዋሃድ የማይረሳ የምግብ ቤት ተሞክሮዎችን ይፈጥራሉ።">Our chefs combine traditional recipes with modern techniques to create unforgettable dining experiences.</p>
+            
+            <div class="icons-container">
+                <div class="icons">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3 data-en="Fast Delivery" data-am="ፈጣን አቅርቦት">Fast Delivery</h3>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3 data-en="Easy Payments" data-am="ቀላል ክፍያ">Easy Payments</h3>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-headset"></i>
+                    <h3 data-en="24/7 Service" data-am="24/7 አገልግሎት">24/7 Service</h3>
+                </div>
+            </div>
+            
+            <a href="#order" class="but" data-en="Order Now" data-am="አሁን ይዘዙ">Order Now</a>
+        </div>
+    </div>
+</section>
+
+<!-- Review Section -->
+<section class="review" id="review">
+    <h3 class="sub-heading" data-en="Customer Reviews" data-am="የደንበኞች አስተያየቶች">Customer Reviews</h3>
+    <h1 class="heading" data-en="What They Say" data-am="ምን ይላሉ?">What They Say</h1>
+    
+    <div class="slide">
+        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Customer 1">
+        <h3>Sarah Johnson</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <p data-en='"The best restaurant in town! The food is always fresh and delicious. Their spicy noodles are my absolute favorite!"'
+           data-am='"በከተማው ውስጥ ምርጥ ሬስቶራንት! ምግቡ ሁልጊዜ ቅርፊ እና ጣፋጭ ነው። ሚስማር ሱስያቸው በጣም የምወደው ነው!"'>"The best restaurant in town! The food is always fresh and delicious. Their spicy noodles are my absolute favorite!"</p>
+    </div>
+    
+    <div class="slide">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Customer 2">
+        <h3>Michael Chen</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <p data-en='"Excellent service and amazing food quality. The grilled salmon was cooked to perfection. Highly recommended!"'
+           data-am='"በጣም ጥሩ አገልግሎት እና አስደናቂ የምግብ ጥራት። የተጠበሰው ሳልሞን ፍጹም በሆነ መልኩ ተጠብሷል። በጣም ይመከራል!"'>"Excellent service and amazing food quality. The grilled salmon was cooked to perfection. Highly recommended!"</p>
+    </div>
+    
+    <div class="slide">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Customer 3">
+        <h3>Emma Wilson</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <p data-en='"Perfect place for family dinners. The staff is friendly and the atmosphere is wonderful. We come here every weekend!"'
+           data-am='"ለቤተሰብ የምሳ ተስማሚ ቦታ። ሠራተኞቹ በጣም ደግ ናቸው እና አካባቢው አስደናቂ ነው። በየሳምንቱ እዚህ እንመጣለን!"'>"Perfect place for family dinners. The staff is friendly and the atmosphere is wonderful. We come here every weekend!"</p>
+    </div>
+</section>
+
+<!-- Order Section -->
+<section class="order" id="order">
+    <h3 class="sub-heading" data-en="Order Now" data-am="አሁን ይዘዙ">Order Now</h3>
+    <h1 class="heading" data-en="Fast & Free Delivery" data-am="ፈጣን እና ነጻ አቅርቦት">Fast & Free Delivery</h1>
+    
+    <form action="">
+        <div class="inputBox">
+            <input type="text" placeholder="Your Name" data-en-placeholder="Your Name" data-am-placeholder="ስምዎ" required>
+            <input type="email" placeholder="Your Email" data-en-placeholder="Your Email" data-am-placeholder="ኢሜይልዎ" required>
+        </div>
+        <div class="inputBox">
+            <input type="tel" placeholder="Your Phone" data-en-placeholder="Your Phone" data-am-placeholder="ስልክዎ" required>
+            <input type="text" placeholder="Food Name" data-en-placeholder="Food Name" data-am-placeholder="የምግብ ስም" required>
+        </div>
+        <div class="inputBox">
+            <textarea placeholder="Your Address" data-en-placeholder="Your Address" data-am-placeholder="አድራሻዎ" required></textarea>
+        </div>
+        <div class="inputBox">
+            <textarea placeholder="Special Instructions (optional)" data-en-placeholder="Special Instructions (optional)" data-am-placeholder="ልዩ መመሪያዎች (አማራጭ)"></textarea>
+        </div>
+        <button type="submit" class="but" data-en="Order Now" data-am="አሁን ይዘዙ">Order Now</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<section class="footer">
+    <div class="footer-container">
+        <!-- About -->
+        <div class="footer-about">
+            <h3><i class="fas fa-utensils"></i> LuxeStay</h3>
+            <p data-en="Serving the finest dishes with love and passion since 2010. Experience culinary excellence with our authentic recipes and premium ingredients."
+               data-am="ከ2010 ጀምሮ በፍቅር እና በፍላጎት ምርጥ ምግቦችን እያቀረብን ነው። ከእኛ እውነተኛ የምግብ ዘይቤዎች እና ጥራት ያለው ንጥረ ነገሮች ጋር የምግብ ማዘጋጀት ልምድን ይደሰቱ።">Serving the finest dishes with love and passion since 2010. Experience culinary excellence with our authentic recipes and premium ingredients.</p>
+            <div class="footer-contact">
+                <p><i class="fas fa-phone-alt"></i> +251 912 345 678</p>
+                <p><i class="fas fa-envelope"></i> info@luxestay.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</p>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+            <h3 data-en="Quick Links" data-am="ፈጣን አገናኞች">Quick Links</h3>
+            <a href="#home" data-en="Home" data-am="መነሻ">Home</a>
+            <a href="#dishes" data-en="Dishes" data-am="ምግቦች">Dishes</a>
+            <a href="#about" data-en="About" data-am="ስለ እኛ">About</a>
+            <a href="#review" data-en="Review" data-am="አስተያየት">Review</a>
+            <a href="#order" data-en="Order" data-am="ዝዛዝ">Order</a>
+            <a href="#" data-en="Contact" data-am="አግኝን">Contact</a>
+            <a href="#" data-en="Privacy Policy" data-am="የግላዊነት ፖሊሲ">Privacy Policy</a>
+            <a href="#" data-en="Terms & Conditions" data-am="ውሎች እና ሁኔታዎች">Terms & Conditions</a>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+            <h3 data-en="Newsletter" data-am="ዜና መጽሔት">Newsletter</h3>
+            <p data-en="Subscribe to our newsletter for latest updates, special offers, and exclusive deals!"
+               data-am="ለቅርብ ዝመናዎች፣ ልዩ ቅናሾች እና ልዩ ዕድሎች ወደ ዜና መጽሔታችን ይመዝገቡ!">Subscribe to our newsletter for latest updates, special offers, and exclusive deals!</p>
+            <form>
+                <input type="email" placeholder="Enter your email" data-en-placeholder="Enter your email" data-am-placeholder="ኢሜይልዎን ያስገቡ" required>
+                <button type="submit" class="but" data-en="Subscribe" data-am="ይመዝገቡ">Subscribe</button>
+            </form>
+            <p style="margin-top: 1rem; font-size: 1.4rem; color: #bbb;" data-en="No spam, unsubscribe anytime." data-am="ስፓም የለም፣ በማንኛውም ጊዜ መዝገብ ሊሆን ይችላል።">No spam, unsubscribe anytime.</p>
+        </div>
+    </div>
+
+    <!-- Social & Credit -->
+    <div class="footer-bottom">
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-pinterest"></a>
+        </div>
+        <div class="footer-credit">
+            <span data-en="© 2024 <span>LuxeStay</span>. All rights reserved | Designed with <i class='fas fa-heart' style='color: #e74c3c; margin: 0 0.5rem;'></i> by our team"
+                  data-am="© 2024 <span>LuxeStay</span>. ሁሉም መብቶች የተጠበቁ ናቸው | በቡድናችን ተነድፎ <i class='fas fa-heart' style='color: #e74c3c; margin: 0 0.5rem;'></i>">© 2024 <span>LuxeStay</span>. All rights reserved | Designed with <i class='fas fa-heart' style='color: #e74c3c; margin: 0 0.5rem;'></i> by our team</span>
+        </div>
+    </div>
+</section>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+// Language Management
+const langButtons = document.querySelectorAll('.lang-btn');
+let currentLang = localStorage.getItem('preferredLang') || 'en';
+
+// Set initial language
+function setLanguage(lang) {
+    currentLang = lang;
+    // Update button states
+    langButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Update all elements with language data attributes
+    document.querySelectorAll('[data-en], [data-am]').forEach(element => {
+        if (element.hasAttribute('data-en') && element.hasAttribute('data-am')) {
+            element.textContent = element.getAttribute(`data-${lang}`);
+        }
+    });
+    
+    // Update placeholders
+    document.querySelectorAll('[data-en-placeholder], [data-am-placeholder]').forEach(input => {
+        if (input.hasAttribute('data-en-placeholder') && input.hasAttribute('data-am-placeholder')) {
+            input.placeholder = input.getAttribute(`data-${lang}-placeholder`);
+        }
+    });
+    
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+    
+    // Store preference
+    localStorage.setItem('preferredLang', lang);
+}
+
+// Initialize with saved language or default
+setLanguage(currentLang);
+
+// Add click events to language buttons
+langButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const lang = button.dataset.lang;
+        setLanguage(lang);
+    });
+});
+
+// Navigation and other existing JavaScript
+let menu = document.querySelector('#menu-bars');
+let navbar = document.querySelector('.navbar');
+let links = document.querySelectorAll('.navbar a');
+let searchForm = document.querySelector('#search-form');
+let searchIcon = document.querySelector('#search-icon');
+let closeSearch = document.querySelector('#close-search');
+
+menu.onclick = () => { 
+    menu.classList.toggle('fa-times'); 
+    navbar.classList.toggle('active'); 
+}
+
+links.forEach(link => { 
+    link.onclick = () => { 
+        navbar.classList.remove('active'); 
+        menu.classList.remove('fa-times');
+        links.forEach(item => item.classList.remove('active'));
+        link.classList.add('active');
+    } 
+});
+
+searchIcon.onclick = (e) => { 
+    e.preventDefault();
+    searchForm.classList.add('active'); 
+    document.querySelector('#search-box').focus();
+}
+
+closeSearch.onclick = () => { searchForm.classList.remove('active'); }
+
+window.onscroll = () => { 
+    navbar.classList.remove('active'); 
+    menu.classList.remove('fa-times'); 
+    searchForm.classList.remove('active'); 
+}
+
+document.addEventListener('keydown', (e) => { 
+    if(e.key === "Escape") searchForm.classList.remove('active'); 
+});
+
+// Initialize Swiper with responsive settings
+var swiper = new Swiper(".mySwiper", { 
+    spaceBetween:30, 
+    centeredSlides:true, 
+    autoplay:{ delay:5000, disableOnInteraction:false }, 
+    pagination:{ el:".swiper-pagination", clickable:true }, 
+    loop:true,
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+    },
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+            spaceBetween: 10
+        },
+        768: {
+            slidesPerView: 1,
+            spaceBetween: 20
+        },
+        1024: {
+            slidesPerView: 1,
+            spaceBetween: 30
+        }
+    }
+});
+
+// Update active nav on scroll
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('section');
+    const navHeight = document.querySelector('header').offsetHeight;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - navHeight - 20;
+        const sectionHeight = section.clientHeight;
+        if(scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    links.forEach(link => {
+        link.classList.remove('active');
+        if(link.getAttribute('href').substring(1) === current) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Add to cart functionality
+document.querySelectorAll('.dishes .but').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const dishName = this.parentElement.querySelector('h3').textContent;
+        const dishPrice = this.parentElement.querySelector('span').textContent;
+        
+        // Update cart count
+        const cartCount = document.querySelector('.fa-shopping-cart .cart-count');
+        let count = parseInt(cartCount.textContent);
+        cartCount.textContent = count + 1;
+        
+        // Show notification in current language
+        const message = currentLang === 'en' 
+            ? `Added ${dishName} (${dishPrice}) to cart!`
+            : `${dishName} (${dishPrice}) ወደ ቋሚ ጨርቅ ጨመረ!`;
+        alert(message);
+        
+        // Animate cart icon
+        const cartIcon = document.querySelector('.fa-shopping-cart');
+        cartIcon.style.transform = 'scale(1.2)';
+        setTimeout(() => {
+            cartIcon.style.transform = 'scale(1)';
+        }, 300);
+    });
+});
+
+// Form submission
+document.querySelector('.order form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const message = currentLang === 'en'
+        ? 'Thank you for your order! We will contact you shortly.'
+        : 'ለትዕዛዝዎ እናመሰግናለን! በቅርቡ እንገናኝዎታለን።';
+    alert(message);
+    this.reset();
+});
+
+// Newsletter subscription
+document.querySelector('.footer-newsletter form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = this.querySelector('input[type="email"]').value;
+    if(email) {
+        const message = currentLang === 'en'
+            ? `Thank you for subscribing with email: ${email}`
+            : `ኢሜይል በመጠቀም ለመመዝገብዎ እናመሰግናለን: ${email}`;
+        alert(message);
+        this.reset();
+    }
+});
+
+// Heart icon click
+document.querySelectorAll('.fa-heart').forEach(heart => {
+    heart.addEventListener('click', function(e) {
+        e.preventDefault();
+        this.classList.toggle('fas');
+        this.classList.toggle('far');
+        if(this.classList.contains('fas')) {
+            // Update heart count
+            const heartCount = document.querySelector('.fa-heart .cart-count');
+            let count = parseInt(heartCount.textContent);
+            heartCount.textContent = count + 1;
+            
+            const message = currentLang === 'en'
+                ? 'Added to favorites!'
+                : 'ወደ ተወዳጆች ጨመረ!';
+            alert(message);
+        }
+    });
+});
+
+// Touch device optimizations
+if ('ontouchstart' in window || navigator.maxTouchPoints) {
+    // Add touch-specific optimizations
+    document.querySelectorAll('.but, .lang-btn, header .navbar a').forEach(element => {
+        element.style.minHeight = '44px';
+        element.style.minWidth = '44px';
+    });
+    
+    // Improve touch scrolling
+    document.addEventListener('touchstart', function() {}, {passive: true});
+}
+
+// Prevent zoom on double tap for mobile
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function(event) {
+    const now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+}, false);
+
+// Adjust viewport for very small screens
+function adjustViewport() {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (window.innerWidth <= 360) {
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    } else {
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+    }
+}
+
+window.addEventListener('resize', adjustViewport);
+adjustViewport(); // Initial call
+</script>
+
+</body>
+</html>
